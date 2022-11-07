@@ -1,3 +1,5 @@
+import { cookies } from 'next/headers';
+
 import { FC } from 'react';
 
 const RightSideBar: FC = () => {

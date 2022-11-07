@@ -26,7 +26,9 @@ export default function RootLayout({
           <div className='flex flex-col space-y-4 w-full'>
             <Header />
             <div className='flex w-full space-x-4'>
-              <div className='w-full'>{children}</div>
+              <div className='w-full bg-white rounded-md p-6 text-stone-700'>
+                {children}
+              </div>
               <div className='w-60'>
                 <RightSideBar />
               </div>

@@ -1,3 +1,3 @@
 export default function Home() {
-  return <div className='bg-white h-[1500px] rounded-md'>Deneme</div>;
+  return <div className=' h-[1500px]'>MAIN PAGE</div>;
 }

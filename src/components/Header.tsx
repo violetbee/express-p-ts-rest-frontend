@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { FC } from 'react';
 import { BiSearchAlt } from 'react-icons/bi';
 
@@ -17,7 +18,9 @@ const Header: FC = () => {
         Gönderi Paylaş
       </button>
       <div className='flex justify-evenly  bg-[#383F68] rounded-lg w-40'>
-        <button className='p-2 w-full'>Üye Ol</button>
+        <Link href='/auth' className='p-2 w-full text-center'>
+          Üye Ol
+        </Link>
         <div className='w-[1px] h-10 bg-white' />
         <button className='p-2 w-full'>Giriş Yap</button>
       </div>

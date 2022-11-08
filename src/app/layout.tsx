@@ -1,23 +1,34 @@
+'use client';
+
 import './globals.css';
 import { Dosis } from '@next/font/google';
 import LeftSideBar from '../components/LeftSideBar';
 import RightSideBar from '../components/RightSideBar';
 import Header from '../components/Header';
+import { useState, useEffect } from 'react';
+import { GET_USER } from '../utils/db';
 
-const raleway = Dosis({
-  weight: ['300', '400', '500', '600', '700'],
-  subsets: ['latin'],
-});
+const dosis = Dosis({ weight: '400', preload: true, subsets: ['latin'] });
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      await GET_USER()
+        .then((res) => res.json())
+        .then((data) => setUser(data));
+    })();
+  });
+
   return (
     <html lang='en'>
       <head />
-      <body className={`bg-[#F6F8FC]  ${raleway.className}`}>
+      <body className={`bg-[#F6F8FC]  ${dosis.className}`}>
         <div className='min-h-screen flex max-w-7xl mx-auto p-4 pt-10 gap-4'>
           {/* Left Bar */}
           <div className='w-60'>

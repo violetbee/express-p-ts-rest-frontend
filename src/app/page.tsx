@@ -1,3 +1,3 @@
 export default function Home() {
-  return <div className=' h-[1500px]'>MAIN PAGE</div>;
+  return <div className=' h-[1500px]'></div>;
 }

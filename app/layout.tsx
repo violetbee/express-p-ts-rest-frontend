@@ -5,8 +5,7 @@ import { Dosis } from '@next/font/google';
 import LeftSideBar from '../components/LeftSideBar';
 import RightSideBar from '../components/RightSideBar';
 import Header from '../components/Header';
-import { useState, useEffect } from 'react';
-import { GET_USER } from '../utils/db';
+import { SessionProvider } from 'next-auth/react';
 
 const dosis = Dosis({ weight: '400', preload: true, subsets: ['latin'] });
 
@@ -15,16 +14,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    (async () => {
-      await GET_USER()
-        .then((res) => res.json())
-        .then((data) => setUser(data));
-    })();
-  });
-
   return (
     <html lang='en'>
       <head />

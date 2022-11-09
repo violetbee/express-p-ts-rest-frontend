@@ -1,18 +1,12 @@
 'use client';
 
 import React, { FC, useState } from 'react';
-import { LOGIN_USER } from '../../utils/db';
+import { signIn } from 'next-auth/react';
 
 const Auth: FC = () => {
   const loginSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await LOGIN_USER(input.email, input.password);
-  };
-
-  const [input, setInput] = useState({ email: '', password: '' });
-
-  const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInput({ ...input, [e.target.name]: e.target.value });
+    signIn('credentials', { redirect: false });
   };
 
   return (
@@ -28,8 +22,6 @@ const Auth: FC = () => {
             type='email'
             name='email'
             id='email'
-            value={input.email}
-            onChange={inputChangeHandler}
           />
         </div>
         <div className='flex justify-between items-center w-full'>
@@ -39,8 +31,6 @@ const Auth: FC = () => {
             type='password'
             name='password'
             id='password'
-            value={input.password}
-            onChange={inputChangeHandler}
           />
         </div>
         <button
